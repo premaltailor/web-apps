@@ -1,0 +1,34 @@
+<h1>Welcome to the ENTR-451 Casino!</h1>
+
+<%
+suits = ["clubs", "diamonds", "hearts", "spades"]
+ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king", "ace"]
+
+rank1 = ranks.sample
+suit1 = suits.sample
+rank2 = ranks.sample
+suit2 = suits.sample
+rank3 = ranks.sample
+suit3 = suits.sample
+rank4 = ranks.sample
+suit4 = suits.sample
+rank5 = ranks.sample
+suit5 = suits.sample
+
+# Better way to do it than above
+deck =[]
+for rank in ranks   
+    for suit in suits
+        deck = deck <<"#{rank}_of_#{suit}"
+    end
+end
+shuffled_deck = deck.shuffle
+hand = shuffled_deck[0,5]
+%>
+
+<% for card in hand %>
+    <img src="images/cards/<%= card %>.svg">
+    <% end %>
+<p>
+    <a href="/cards">Draw Again!</a>
+</p>
